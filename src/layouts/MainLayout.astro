@@ -8,6 +8,9 @@ import "../styles/global.css";
 // Importamos el componente Navbar que se mostrará en todas las páginas del sitio web
 import Navbar from "../components/Navbar.astro";
 
+// Importamos el componente Footer que se mostrará en todas las páginas del sitio web
+import Footer from "../components/Footer.astro";
+
 // Definimos la interfaz de las propiedades que recibirá el layout, permitiendo omitir algunas de ellas
 interface Props {
     title?: string;
@@ -41,5 +44,7 @@ const {
         <Navbar />
         <!-- Realizamos las configuraciones básicas del documento -->        
         <slot />
+        <!-- Pie de página compartido del sitio web -->
+        <Footer />
     </body>
 </html>
