@@ -5,6 +5,9 @@
 // Importamos los estilos globales que se aplicarán a todo el sitio web
 import "../styles/global.css";
 
+// Importamos el componente Navbar que se mostrará en todas las páginas del sitio web
+import Navbar from "../components/Navbar.astro";
+
 // Definimos la interfaz de las propiedades que recibirá el layout, permitiendo omitir algunas de ellas
 interface Props {
     title?: string;
@@ -34,6 +37,8 @@ const {
     </head>
 
     <body>
+        <!-- Navegación compartida del sitio web -->
+        <Navbar />
         <!-- Realizamos las configuraciones básicas del documento -->        
         <slot />
     </body>
