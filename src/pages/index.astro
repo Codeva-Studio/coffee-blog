@@ -1,16 +1,11 @@
 ---
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+
+// Importamos el layout principal que proporciona la estructura básica del sitio web
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!-- Contenido principal de la página de inicio -->
+<MainLayout>
+	<h1>Bienvenido a Coffee Blog</h1>
+</MainLayout>

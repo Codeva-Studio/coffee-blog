@@ -1,0 +1,40 @@
+---
+
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+
+// Importamos los estilos globales que se aplicarán a todo el sitio web
+import "../styles/global.css";
+
+// Definimos la interfaz de las propiedades que recibirá el layout, permitiendo omitir algunas de ellas
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+// Obtenemos las propiedades del layout, asignando valores predeterminados por si no se proporcionan
+const {
+    title = "Coffee Blog | Cultura del café",
+    description = "Un espacio dedicado a los amantes del café. Descubre sus orígenes, variedades y métodos de preparación a través de artículos, guías y recomendaciones para disfrutar cada taza."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <!-- Realizamos las configuraciones básicas del documento --> 
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Definimos los metadatos para describir el sitio web -->
+        <meta name="description" content={description} />
+        <meta name="author" content="Codeva Studio" />
+
+        <!-- Asignamos el título que se mostrará en la pestaña del navegador -->
+        <title>{title}</title>
+    </head>
+
+    <body>
+        <!-- Realizamos las configuraciones básicas del documento -->        
+        <slot />
+    </body>
+</html>
