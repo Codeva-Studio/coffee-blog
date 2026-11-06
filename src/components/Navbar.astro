@@ -1,0 +1,46 @@
+<header class="w-full bg-espresso text-cream">
+    <!-- Contenedor principal de la navegación -->
+    <nav class="flex w-full flex-wrap items-center justify-between px-6 py-5">
+        <!-- Marca tipográfica que dirige a la página de inicio -->
+        <a href="/" class="font-heading text-4xl font-medium tracking-wide">Coffee Blog</a>
+
+        <!-- Botón para mostrar u ocultar el menú en dispositivos móviles -->
+        <button
+         id="menu-toggle"
+         type="button"
+         class="rounded-md border px-4 py-2 font-body text-sm md:hidden"
+        >
+            Menú
+        </button>
+
+        <!-- Enlaces principales del sitio web -->
+        <ul id="menu-principal" class="hidden w-full flex-col gap-4 pt-5 font-body text-sm md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:pt-0 md:text-lg">
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+
+            <li>
+                <a href="/blog/">Blog</a>
+            </li>
+
+            <li>
+                <a href="/categorias/">Categorias</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    // Obtenemos los elementos del DOM que necesitamos para el menú
+    const menuToggle = document.querySelector("#menu-toggle");
+    const menuPrincipal = document.querySelector("#menu-principal");
+
+    // Comprobamos que los elementos existan antes de agregar el evento
+    if (menuToggle && menuPrincipal) {
+        menuToggle.addEventListener("click", () => {
+            // Alternamos la clase "hidden" para mostrar u ocultar el menú
+            menuPrincipal.classList.toggle("hidden");
+            menuPrincipal.classList.toggle("flex");
+        });
+    }
+</script>
