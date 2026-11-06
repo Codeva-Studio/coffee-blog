@@ -1,1 +1,54 @@
+/* Importamos las tipografias utilizadas en el sitio web */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* Importamos Tailwind CSS para poder utilizar sus utilidades y reglas */
 @import "tailwindcss";
+
+/* Definimos los estilos que utilizará todo el sitio web */
+
+/* Colores y tipografías del proyecto */
+@theme {
+    --color-cream: #F7F3EA;
+    --color-espresso: #2B211B;
+    --color-coffee: #6F4E37;
+    --color-taupe: #A58B73;
+    --color-terracotta: #B66A4B;
+
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+/* Estilos generales */
+@layer base {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-cream);
+        color: var(--color-espresso);
+        font-family: var(--font-body);
+        margin: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        font-size: revert;
+        font-weight: revert;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        font: inherit;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
