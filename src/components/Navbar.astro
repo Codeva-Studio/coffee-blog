@@ -2,29 +2,32 @@
     <!-- Contenedor principal de la navegación -->
     <nav class="flex w-full flex-wrap items-center justify-between px-6 py-5">
         <!-- Marca tipográfica que dirige a la página de inicio -->
-        <a href="/" class="font-heading text-4xl font-medium tracking-wide">Coffee Blog</a>
+        <a href="/" class="font-heading text-4xl font-medium tracking-wide transition-color hover:text-terracotta">Coffee Blog</a>
 
         <!-- Botón para mostrar u ocultar el menú en dispositivos móviles -->
         <button
-         id="menu-toggle"
-         type="button"
-         class="rounded-md border px-4 py-2 font-body text-sm md:hidden"
+            id="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            class="group flex size-11 flex-col justify-center gap-2 rounded-md md:hidden"
         >
-            Menú
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-300 group-aria-expanded:translate-y-2.5 group-aria-expanded:rotate-45"></span>
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-200 group-aria-expanded:translate-y-2.5 group-aria-expanded:opacity-0"></span>
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-300 group-aria-expanded:-translate-y-2.5 group-aria-expanded:-rotate-45"></span>
         </button>
 
         <!-- Enlaces principales del sitio web -->
         <ul id="menu-principal" class="hidden w-full flex-col gap-4 pt-5 font-body text-sm md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:pt-0 md:text-lg">
             <li>
-                <a href="/">Inicio</a>
+                <a href="/" class="transition-color hover:text-terracotta">Inicio</a>
             </li>
 
             <li>
-                <a href="/blog/">Blog</a>
+                <a href="/blog/" class="transition-color hover:text-terracotta">Blog</a>
             </li>
 
             <li>
-                <a href="/categorias/">Categorias</a>
+                <a href="/categorias/" class="transition-color hover:text-terracotta">Categorias</a>
             </li>
         </ul>
     </nav>
@@ -41,6 +44,10 @@
             // Alternamos la clase "hidden" para mostrar u ocultar el menú
             menuPrincipal.classList.toggle("hidden");
             menuPrincipal.classList.toggle("flex");
+
+            // Actualizamos el estado del botón
+            const isExpanded = menuPrincipal.classList.contains("flex");
+            menuToggle.setAttribute("aria-expanded", isExpanded.toString());
         });
     }
 </script>
