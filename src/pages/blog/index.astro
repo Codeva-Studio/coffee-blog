@@ -1,0 +1,46 @@
+---
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+
+// Importamos el layout principal que contiene la estructura general del sitio, incluyendo la navegación y el pie de página
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// Importamos el componente que representa cada tarjeta de artículi
+import ArticleCard from "../../components/cards/ArticleCard.astro";
+
+// Importamos el catálogo con la información de nuestros artículos
+import { articles } from "../../data/articles.js";
+---
+
+<!-- Contenido principal de la página del blog -->
+<MainLayout>
+
+    <!-- Contenido principal de la página del blog -->
+    <main class="mx-auto max-w-6xl px-6 py-12">
+
+        <!-- Título principal de la página -->
+        <h1 class="mb-8 font-heading text-4xl font-semibold text-espresso">
+            Nuestro blog
+        </h1>
+        
+        <!-- Contenedor que organiza las tarjetas de los artículos -->
+        <section class="grid grid-cols-1 gap-8">
+
+            <!--Recorremos el catálogo para generar una tarjeta por artículo -->
+            {articles.map((article) => (
+                <ArticleCard
+                    title={article.title}
+                    slug={article.slug}
+                    category={article.category}
+                    description={article.description}
+                    image={article.image}
+                    imageAlt={article.imageAlt}
+                    author={article.author}
+                    publishedAt={article.publishedAt}
+                    featured={article.featured}
+                />
+            ))}
+
+        </section>
+
+    </main>
+</MainLayout>
