@@ -1,0 +1,105 @@
+---
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+
+// Importamos el layout principal del sitio web
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// Importamos los datos generales de los artículos
+import { articles } from "../../data/articles.js";
+
+// Importamos el contenido de cada artículo
+import { Content as HistoriaDelCafe } from "../../content/articles/historia-del-cafe.md";
+
+// Relacionamos cada artículo con su contenido Markdown
+const articleContents = {
+    "historia-del-cafe": HistoriaDelCafe,
+}
+
+// Definimos los datos que recibirá esta página
+interface Props {
+    article: (typeof articles)[number];
+}
+
+// Recuperamos el artículo seleccionado
+const { article } = Astro.props;
+
+// Buscamos el contenido correspondiente al artículo
+const Content = article.slug === "historia-del-cafe" ? HistoriaDelCafe : null;
+
+// Generamos una página para cada artículo del catálogo
+export function getStaticPaths() {
+    return articles.map((article) => ({
+        params: { slug: article.slug },
+        props: { article },
+    }));
+}
+---
+
+<MainLayout>
+    <main class="mx-auto max-w-4xl px-6 py-12">
+
+        <!-- Enlace para regresar al catálogo -->
+        <a href="/blog/" class="mb-10 inline-block font-semibold text-terracotta transition-colors hover:text-coffee">Volver al blog</a>
+
+        <!-- Información principal del artículo -->
+        <header>
+
+            <!-- Categoría principal del artículo -->
+            <span class="mb-5 inline-block rounded-full bg-terracotta px-4 py-2 text-sm font-semibold text-white">{article.category}</span>
+
+            <!-- Título del artículo -->
+            <h1 class="mb-6 font-heading text-4xl font-semibold leading-tight text-espresso sm:text-5xl">{article.title}</h1>
+
+            <!-- Autor del artículo -->
+            <p class="mb-3 text-sm text-taupe">{article.author}</p>
+
+        </header>
+
+        <!-- Imagén principal del artículo -->
+        <img src={article.image} alt={article.imageAlt} class="mb-12 aspect-[16/9] w-full rounded-3xl object-cover"/>
+
+        <!-- Contenido completo del artículo -->
+        <article 
+            class="
+                text-base leading-8 text-coffee
+
+                [&_p]:mb-6
+
+                [&_h2]:mb-5 [&_h2]:mt-14 [&_h2]:font-heading
+                [&_h2]:text-3xl [&_h2]:font-semibold
+                [&_h2]:leading-tight [&_h2]:text-espresso
+
+                [&_h3]:mb-3 [&_h3]:mt-9 [&_h3]:font-heading
+                [&_h3]:text-2xl [&_h3]:font-semibold
+                [&_h3]:text-espresso
+
+                [&_strong]:font-semibold [&_strong]:text-espresso
+
+                [&_ul]:my-6 [&_ul]:list-disc [&_ul]:space-y-3
+                [&_ul]:pl-7
+
+                [&_ol]:my-6 [&_ol]:list-decimal [&_ol]:space-y-3
+                [&_ol]:pl-7
+
+                [&_blockquote]:my-10 [&_blockquote]:rounded-r-xl
+                [&_blockquote]:border-l-4 [&_blockquote]:border-terracotta
+                [&_blockquote]:bg-terracotta/5
+                [&_blockquote]:px-6 [&_blockquote]:py-5
+                [&_blockquote]:italic
+
+                [&_a]:font-semibold [&_a]:text-terracotta
+                [&_a]:underline [&_a]:underline-offset-4
+                [&_a:hover]:text-coffee
+
+                [&_img]:my-10 [&_img]:w-full
+                [&_img]:rounded-2xl [&_img]:object-cover
+
+                [&_hr]:my-12 [&_hr]:border-taupe/30"
+        >
+            {Content ? (<Content/>) :(
+                <p>El contenido de este artículo todavía no está disponible.</p>
+            )}
+        </article>
+
+    </main>
+</MainLayout>
