@@ -1,53 +1,59 @@
-// Información general de los artículos de Coffee Blog
-// Contiene los datos necesarios para mostrar las tarjetas y organizar las publicaciones
+// Información general de los artículos de Coffee Blog.
+// Contiene los datos necesarios para mostrar las tarjetas y organizar las publicaciones. El contenido completo estará en archivos Markdown (.md).
 
 export const articles = [
-    {
-        // Título que aparecerá en la tareta y en el artículos
-        title: "La historia del café",
+  {
+    // Título que aparecerá en la tarjeta y en el artículo.
+    title: "La historia del café",
 
-        // Identificador único para relacionar el los datos con el contenido y generar la dirección del artículo
-        slug: "historia-del-cafe",
+    // Identificador único para relacionar los datos con el contenido y generar la dirección del artículo.
+    slug: "historia-del-cafe",
 
-        // Categoría temática a la que pertenece el artículo
-        category: "Cultura e historia",
+    // Categoría temática a la que pertenece el artículo.
+    category: "Cultura e historia",
 
-        // Resumen breve que aparecerá en la tarjeta del artículo
-        description: "Conoce los orígenes del café y cómo se extendió por diferentes regiones del mundo.",
+    // Resumen breve que aparecerá en la tarjeta del artículo.
+    description: "Conoce los orígenes del café y cómo se extendió por diferentes regiones del mundo.",
 
-        // Ruta de la imagen que se mostrará en la tarjeta
-        image: "",
+    // Ruta de la imagen que se mostrará en la tarjeta.
+    image: "/images/blog/historia-del-cafe.jpg",
 
-        // Descripción de la imagén para mejorar la accesibilidad
-        imageAlt: "Granos de café tostado",
+    // Descripción de la imagen para mejorar la accesibilidad.
+    imageAlt: "Granos de café tostado",
 
-        // Autor o resposable de la publicación
-        author: "Coffe Blog",
+    // Autor o responsable de la publicación.
+    author: "Alejandro Suárez",
 
-        // Fecha de publicación en formato AAAA-MM-DD
-        publishedAt: "2026-11-07",
+    // Marca editorial responsable de publicar el contenido.
+    publisher: "Coffee Blog",
 
-        // Indica si el artículo aparecerá como destacado
-        featured: true,
-    },
-    {
-        title: "Métodos de preparación del café",
+    // Fecha de publicación en formato AAAA-MM-DD.
+    // Se deja en null hasta definir una fecha real.
+    publishedAt: null,
 
-        slug: "metodos-de-preparacion",
+    // Indica si el artículo aparecerá como destacado.
+    featured: true,
+  },
+  {
+    title: "Métodos de preparación del café",
 
-        category: "Preparación",
+    slug: "metodos-de-preparacion",
 
-        description:"Descubre diferentes métodos para preparar café y las características de cada uno.",
-        
-        image: "",
+    category: "Preparación",
 
-        imageAlt: "Preparación de café mediante filtrado",
+    description: "Descubre diferentes métodos para preparar café y las características de cada uno.",
 
-        author: "Coffee Blog",
+    image: "/images/blog/metodos-de-preparacion.jpg",
 
-        publishedAt: null,
+    imageAlt: "Preparación de café mediante filtrado",
 
-        featured: false,
+    author: "Alejandro Suárez",
+
+    publisher: "Coffee Blog",
+
+    publishedAt: null,
+
+    featured: false,
   },
   {
     title: "¿Cómo elegir un buen café?",
@@ -56,13 +62,15 @@ export const articles = [
 
     category: "Conocimiento",
 
-    description:"Aprende qué aspectos considerar al elegir granos de café para tu próxima taza.",
-    
-    image: "",
+    description: "Aprende qué aspectos considerar al elegir granos de café para tu próxima taza.",
 
-    imageAlt: "Taza de ceramica llena de café con leche",
+    image: "/images/blog/elegir-buen-cafe.jpg",
 
-    author: "Coffee Blog",
+    imageAlt: "Taza de cerámica llena de café con leche",
+
+    author: "Alejandro Suárez",
+
+    publisher: "Coffee Blog",
 
     publishedAt: null,
 
@@ -76,12 +84,14 @@ export const articles = [
     category: "Exploración",
 
     description: "Un acercamiento a las distintas regiones productoras y sus características.",
-    
-    image: "/images/blog/mundo-del-cafe.webp",
+
+    image: "/images/blog/mundo-del-cafe.jpg",
 
     imageAlt: "Manojo de granos de café",
 
-    author: "Coffee Blog",
+    author: "Alejandro Suárez",
+
+    publisher: "Coffee Blog",
 
     publishedAt: null,
 
