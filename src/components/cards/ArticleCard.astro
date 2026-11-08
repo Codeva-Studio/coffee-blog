@@ -1,0 +1,83 @@
+---
+
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+
+// Componente reutilizable para mostrar la información de un artículo en forma de tarjeta
+
+// Definimos los datos que recibirá la tarjeta
+interface Props {
+    title: String;
+    slug: string;
+    category: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    author: string;
+    publishedAt: string | null;
+    featured: boolean;
+}
+
+// Recuperamos los datos que se envían al componente
+const {
+    title,
+    slug,
+    category,
+    description,
+    image,
+    imageAlt,
+    author,
+    publishedAt,
+    featured,
+} = Astro.props;
+
+// Convertimos la fecha a un formato legible en español
+const formattedDate = publishedAt ? (() => {
+    const[year, month, day] = publishedAt.split("-").map(Number);
+    return new Date(year, month - 1, day).toLocaleDateString("es-MX", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
+})() : null;
+---
+
+<article class="group grid overflow-hidden rounded-3xl bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl md:grid-cols-2">
+
+    <!-- Imagen representativa del artículo -->
+    <a href={`/blog/${slug}/`} class="relative block aspect-[16/10] overflow-hidden md:aspect-auto">
+        <img src={image} alt={imageAlt} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-150" loading="lazy" />
+
+        <!-- Categoría del artículo -->
+        <span class="absolute left-5 top-5 rounded-full bg-terracota px-4 py-2 text-sm font-semibold text-white">{category}</span>
+    </a>
+
+    <!-- Información del artículo -->
+    <div class="flex flex-col justify-center gap-5 p-6 sm:p-8 lg:p-10">
+
+        <!-- Estado destacado -->
+        {featured && (
+            <span class="w-fit rounded-full border border-terracotta/30 bg-terracotta/10 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-terracotta">Destacado</span>
+        )}
+
+        <!-- Autor y fecha -->
+        <div class="flex items-center gap-3 text-sm text-taupe">
+            <span>{author}</span>
+
+            {formattedDate && (
+                <time datetime={publishedAt!}>{formattedDate}</time>
+            )}
+        </div>
+
+        <!-- Título del artículo -->
+        <h2 class="font-heading text-3xl font-semibold leading-tight text-espresso transition-colors duration-300 group-hover:text-coffee sm:text-4xl">
+            <a href={`/blog/${slug}/`}>{title}</a>
+        </h2>
+
+        <!-- Resumen del artículo -->
+        <p class="text-base leading-relaxed text-coffe sm:text-lg">{description}</p>
+
+        <!-- Enlace para consultar el artículo completo -->
+         <a href={`/blog/${slug}/`} class="mt-2 inline-flex w-fit border-b-2 border-terracotta pb-1 font-semibold text-terracotta transition-colors duration-300 hover:text-coffee">Leer artículo</a>
+    </div>
+</article>
+
