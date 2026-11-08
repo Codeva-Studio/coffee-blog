@@ -11,22 +11,24 @@ import { articles } from "../../data/articles.js";
 import { Content as HistoriaDelCafe } from "../../content/articles/historia-del-cafe.md";
 import { Content as MetodosDePreparacion } from "../../content/articles/metodos-de-preparacion.md";
 import { Content as ComoElegirUnBuenCafe } from "../../content/articles/como elegir-un-buen-cafe.md";
+import { Content as ExplorandoElMundoDelCafe } from "../../content/articles/explorando-el-mundo-del-cafe.md";
 
 // Definimos el tipo de contenido Markdown de los artículos
 type ArticleContent = 
 
     typeof HistoriaDelCafe | 
     typeof MetodosDePreparacion |
-    typeof ComoElegirUnBuenCafe
+    typeof ComoElegirUnBuenCafe |
+    typeof ExplorandoElMundoDelCafe
 
 ;
-
 
 // Relacionamos cada artículo con su contenido Markdown
 const articleContents: Record<string, ArticleContent> = {
     "historia-del-cafe": HistoriaDelCafe,
     "metodos-de-preparacion": MetodosDePreparacion,
     "como-elegir-un-buen-cafe": ComoElegirUnBuenCafe,
+    "explorando-el-mundo-del-cafe": ExplorandoElMundoDelCafe,
 };
 
 // Definimos los datos que recibirá esta página
@@ -53,7 +55,7 @@ export function getStaticPaths() {
     <main class="mx-auto max-w-4xl px-6 py-12">
 
         <!-- Enlace para regresar al catálogo -->
-        <a href="/blog/" class="mb-10 inline-block font-semibold text-terracotta transition-colors duration-300 hover:text-[#E8DCC8]">
+        <a href="/blog/" class="mb-10 inline-block font-semibold text-terracotta transition-colors duration-300 hover:text-espresso">
             Volver al blog
         </a>
 
