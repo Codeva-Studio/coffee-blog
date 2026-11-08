@@ -1,5 +1,5 @@
 ---
-// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScrpt dentro de este archivo
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScript dentro de este archivo
 
 // Importamos el layout principal del sitio web
 import MainLayout from "../../layouts/MainLayout.astro";
@@ -7,13 +7,20 @@ import MainLayout from "../../layouts/MainLayout.astro";
 // Importamos los datos generales de los artículos
 import { articles } from "../../data/articles.js";
 
-// Importamos el contenido de cada artículo
+// Importamos el contenido de los artículos
 import { Content as HistoriaDelCafe } from "../../content/articles/historia-del-cafe.md";
+import { Content as MetodosDePreparacion } from "../../content/articles/metodos-de-preparacion.md";
+
+
+// Definimos el tipo de contenido Markdown de los artículos
+type ArticleContent = typeof HistoriaDelCafe | typeof MetodosDePreparacion;
+
 
 // Relacionamos cada artículo con su contenido Markdown
-const articleContents = {
+const articleContents: Record<string, ArticleContent> = {
     "historia-del-cafe": HistoriaDelCafe,
-}
+    "metodos-de-preparacion": MetodosDePreparacion,
+};
 
 // Definimos los datos que recibirá esta página
 interface Props {
@@ -23,8 +30,8 @@ interface Props {
 // Recuperamos el artículo seleccionado
 const { article } = Astro.props;
 
-// Buscamos el contenido correspondiente al artículo
-const Content = article.slug === "historia-del-cafe" ? HistoriaDelCafe : null;
+// Buscamos automáticamente el contenido correspondiente al slug
+const Content = articleContents[article.slug] ?? null;
 
 // Generamos una página para cada artículo del catálogo
 export function getStaticPaths() {
@@ -39,29 +46,43 @@ export function getStaticPaths() {
     <main class="mx-auto max-w-4xl px-6 py-12">
 
         <!-- Enlace para regresar al catálogo -->
-        <a href="/blog/" class="mb-10 inline-block font-semibold text-terracotta transition-colors hover:text-coffee">Volver al blog</a>
+        <a href="/blog/" class="mb-10 inline-block font-semibold text-terracotta transition-colors duration-300 hover:text-[#E8DCC8]">
+            Volver al blog
+        </a>
 
         <!-- Información principal del artículo -->
         <header>
 
             <!-- Categoría principal del artículo -->
-            <span class="mb-5 inline-block rounded-full bg-terracotta px-4 py-2 text-sm font-semibold text-white">{article.category}</span>
+            <span class="mb-5 inline-block rounded-full bg-terracotta px-4 py-2 text-sm font-semibold text-white">
+                {article.category}
+            </span>
 
             <!-- Título del artículo -->
-            <h1 class="mb-6 font-heading text-4xl font-semibold leading-tight text-espresso sm:text-5xl">{article.title}</h1>
+            <h1 class="mb-6 font-heading text-4xl font-semibold leading-tight text-espresso sm:text-5xl">
+                {article.title}
+            </h1>
 
             <!-- Autor del artículo -->
-            <p class="mb-3 text-sm text-taupe">{article.author}</p>
+            <p class="mb-3 text-sm text-taupe">
+                {article.author}
+            </p>
 
         </header>
 
-        <!-- Imagén principal del artículo -->
-        <img src={article.image} alt={article.imageAlt} class="mb-12 aspect-[16/9] w-full rounded-3xl object-cover"/>
+        <!-- Imagen principal del artículo -->
+        <img
+            src={article.image}
+            alt={article.imageAlt}
+            class="mb-12 aspect-[16/9] w-full rounded-3xl object-cover"
+        />
 
         <!-- Contenido completo del artículo -->
-        <article 
+        <article
             class="
                 text-base leading-8 text-coffee
+
+                [&_h1]:mb-5
 
                 [&_p]:mb-6
 
@@ -94,9 +115,12 @@ export function getStaticPaths() {
                 [&_img]:my-10 [&_img]:w-full
                 [&_img]:rounded-2xl [&_img]:object-cover
 
-                [&_hr]:my-12 [&_hr]:border-taupe/30"
+                [&_hr]:my-12 [&_hr]:border-taupe/30
+            "
         >
-            {Content ? (<Content/>) :(
+            {Content ? (
+                <Content />
+            ) : (
                 <p>El contenido de este artículo todavía no está disponible.</p>
             )}
         </article>
