@@ -1,3 +1,4 @@
+
 # La historia del café: De sus orígenes hasta convertirse en una bebida mundial
 
 El café es mucho más que una bebida que acompaña nuestras mañanas. A lo largo de los siglos, ha formado parte de reuniones, tradiciones, intercambios comerciales y momentos cotidianos en distintas sociedades.
@@ -9,6 +10,11 @@ Pero ¿cómo pasó de crecer de manera silvestre en los bosques africanos a conv
 ## Los orígenes del café en África
 
 La historia del café comienza en las tierras altas de Etiopía, en el este de África. En esta región crece de manera natural la planta *Coffea arabica*, una de las especies más conocidas y cultivadas para la producción de café.
+
+<figure>
+  <img src="/images/blog/historia-del-cafe/origenes-cafe-africa.jpg" alt="Frutos maduros de café creciendo en una planta de Coffea arabica" />
+  <figcaption>Los frutos del cafeto forman parte del origen botánico del café en África.</figcaption>
+</figure>
 
 Aunque existen relatos populares sobre su descubrimiento, no se conoce con certeza quién fue la primera persona en consumir sus frutos ni cuándo ocurrió.
 
@@ -44,6 +50,11 @@ Durante el siglo XVII, el café comenzó a ganar popularidad en distintas ciudad
 
 Venecia fue uno de los primeros puntos de entrada importantes. Posteriormente, las cafeterías aparecieron en ciudades como Londres, París y Viena.
 
+<figure>
+  <img src="/images/blog/historia-del-cafe/cafeterias-historicas.jpg" alt="Interior de una cafetería europea de estilo histórico" />
+  <figcaption>Las cafeterías europeas se convirtieron en espacios de conversación e intercambio cultural.</figcaption>
+</figure>
+
 Al igual que había sucedido en Oriente Medio, estos establecimientos se convirtieron en lugares de reunión. Comerciantes, escritores, estudiantes y otros grupos acudían para conversar, leer y conocer las noticias del momento.
 
 La bebida también comenzó a formar parte de nuevos hábitos de consumo. Su preparación y presentación fueron cambiando conforme se incorporaba a las costumbres de cada sociedad.
@@ -55,6 +66,11 @@ Durante los siglos XVII y XVIII, el cultivo del café comenzó a extenderse fuer
 Las potencias europeas trasladaron plantas y semillas a territorios de Asia, el Caribe y América. Este proceso estuvo relacionado con la expansión colonial y con el crecimiento de las redes comerciales internacionales.
 
 En América, las condiciones climáticas de diversas regiones favorecieron el desarrollo de plantaciones. Brasil, Colombia y otros países se incorporaron progresivamente a la producción mundial.
+
+<figure>
+  <img src="/images/blog/historia-del-cafe/cultivo-cafe-america.jpg" alt="Recolección manual de frutos maduros de café en una plantación latinoamericana" />
+  <figcaption>La recolección de los frutos es una parte fundamental de la producción de café en América Latina.</figcaption>
+</figure>
 
 Sin embargo, esta expansión también estuvo marcada por la explotación laboral, la esclavitud y los sistemas de trabajo forzado asociados a las economías coloniales. Por ello, la historia del café no puede entenderse únicamente como una historia de comercio y crecimiento: también refleja las desigualdades que acompañaron su producción.
 
