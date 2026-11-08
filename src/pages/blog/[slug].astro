@@ -10,16 +10,23 @@ import { articles } from "../../data/articles.js";
 // Importamos el contenido de los artículos
 import { Content as HistoriaDelCafe } from "../../content/articles/historia-del-cafe.md";
 import { Content as MetodosDePreparacion } from "../../content/articles/metodos-de-preparacion.md";
-
+import { Content as ComoElegirUnBuenCafe } from "../../content/articles/como elegir-un-buen-cafe.md";
 
 // Definimos el tipo de contenido Markdown de los artículos
-type ArticleContent = typeof HistoriaDelCafe | typeof MetodosDePreparacion;
+type ArticleContent = 
+
+    typeof HistoriaDelCafe | 
+    typeof MetodosDePreparacion |
+    typeof ComoElegirUnBuenCafe
+
+;
 
 
 // Relacionamos cada artículo con su contenido Markdown
 const articleContents: Record<string, ArticleContent> = {
     "historia-del-cafe": HistoriaDelCafe,
     "metodos-de-preparacion": MetodosDePreparacion,
+    "como-elegir-un-buen-cafe": ComoElegirUnBuenCafe,
 };
 
 // Definimos los datos que recibirá esta página
