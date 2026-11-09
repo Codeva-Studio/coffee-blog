@@ -29,7 +29,7 @@ export const articles = [
 
     // Fecha de publicación en formato AAAA-MM-DD.
     // Se deja en null hasta definir una fecha real.
-    publishedAt: null,
+    publishedAt: "2026-11-09",
 
     // Indica si el artículo aparecerá como destacado.
     featured: true,
@@ -51,7 +51,7 @@ export const articles = [
 
     publisher: "Coffee Blog",
 
-    publishedAt: null,
+    publishedAt: "2026-11-09",
 
     featured: false,
   },
@@ -72,7 +72,7 @@ export const articles = [
 
     publisher: "Coffee Blog",
 
-    publishedAt: null,
+    publishedAt: "2026-11-09",
 
     featured: false,
   },
@@ -93,7 +93,7 @@ export const articles = [
 
     publisher: "Coffee Blog",
 
-    publishedAt: null,
+    publishedAt: "2026-11-09",
 
     featured: false,
   },
