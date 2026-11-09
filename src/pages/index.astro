@@ -1,16 +1,34 @@
 ---
+// Delimitamos el frontmatter para que Astro pueda procesar lógica y código JavaScript dentro de este archivo
+
+// Importamos el layout principal que proporciona la estructura básica del sitio web
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!-- Contenido principal de la página de inicio -->
+<MainLayout>
+    <main>
+        <!-- Presentación principal del blog -->
+        <section class="bg-cream px-6 py-16 md:py-24">
+            <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+                <!-- Texto introductorio -->
+                <div>
+                    <p class="mb-6 font-body text-xs font-bold uppercase tracking-[0.2em] text-terracotta">Cultura e historia del café</p>
+
+                    <h1 class="font-heading text-5xl leading-tight font-medium text-espresso md:text-6xl xl:text-7xl">El mundo del café una taza a la vez</h1>
+
+                    <p class="mt-6 max-w-xl font-body text-base leading-8 text-coffee md:text-lg">Descubre los orígenes, las tradiciones y los métodos de preparación que hacen del café una experiencia única</p>
+
+                    <a href="/blog/" class="mt-8 inline-block bg-espresso px-7 py-3 font-body text-sm font-semibold text-cream transition-colors hover:bg-coffee">Explorar artículos</a>
+                </div>
+
+                <!-- Imagen principal de la portada -->
+                <div class="overflow-hidden rounded-sm">
+                    <img src="/images/home/portada-cafe.jpg" alt="Taza de café recién preparado sobre una mesa" class="h-80 w-full object-cover sm:h-100 lg:h-125"/>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</MainLayout>

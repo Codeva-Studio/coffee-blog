@@ -1,0 +1,50 @@
+<header class="w-full bg-espresso text-cream">
+    <!-- Contenedor principal de la navegación -->
+    <nav class="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between px-6 py-5">
+
+        <!-- Marca tipográfica que dirige a la página de inicio -->
+        <a href="/" class="font-heading text-4xl font-medium tracking-wide transition-colors hover:text-terracotta">Coffee Blog</a>
+
+        <!-- Botón para mostrar u ocultar el menú en dispositivos móviles -->
+        <button
+            id="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            class="group flex size-11 flex-col justify-center gap-2 rounded-md md:hidden"
+        >
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-300 group-aria-expanded:translate-y-2.5 group-aria-expanded:rotate-45"></span>
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-200 group-aria-expanded:translate-y-2.5 group-aria-expanded:opacity-0"></span>
+            <span class="block h-0.5 w-5/6 rounded-full bg-cream transition duration-300 group-aria-expanded:-translate-y-2.5 group-aria-expanded:-rotate-45"></span>
+        </button>
+
+        <!-- Enlaces principales del sitio web -->
+        <ul id="menu-principal" class="hidden w-full flex-col gap-4 pt-5 font-body text-sm md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:pt-0 md:text-lg">
+            <li>
+                <a href="/" class="transition-colors hover:text-terracotta">Inicio</a>
+            </li>
+
+            <li>
+                <a href="/blog/" class="transition-colors hover:text-terracotta">Blog</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+// Obtenemos los elementos del DOM que necesitamos para el menú
+const menuToggle = document.querySelector("#menu-toggle");
+const menuPrincipal = document.querySelector("#menu-principal");
+
+// Comprobamos que los elementos existan antes de agregar el evento
+if (menuToggle && menuPrincipal) {
+    menuToggle.addEventListener("click", () => {
+        // Alternamos la clase "hidden" para mostrar u ocultar el menú
+        menuPrincipal.classList.toggle("hidden");
+        menuPrincipal.classList.toggle("flex");
+
+        // Actualizamos el estado del botón
+        const isExpanded = menuPrincipal.classList.contains("flex");
+        menuToggle.setAttribute("aria-expanded", isExpanded.toString());
+    });
+}
+</script>
